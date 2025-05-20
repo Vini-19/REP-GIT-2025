@@ -25,6 +25,7 @@ void main() {
 
   dynamic resultado = x + y;
   print("su suma es: $resultado");
+  //resta
 
   dynamic resoltadoResta = x - y;
   print("su resta es: $resoltadoResta");
