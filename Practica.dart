@@ -35,4 +35,21 @@ void main() {
   //division
   dynamic resultadoDivision = x / y;
   print("su division es: $resultadoDivision");
+
+  // Operadores condicionales
+  /*
+> mayor que
+< menor que
+== igual
+<= menor igual
+>= igual
+is = compara el valor de los datos
+is! = compara si el valor de los datos son distintos
+!= si son diferentes
+*/
+
+  /// igualdad
+
+  var re = 30 == 15;
+  print(re);
 }
