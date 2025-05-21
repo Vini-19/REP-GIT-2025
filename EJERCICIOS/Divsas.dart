@@ -1,31 +1,35 @@
-void main(){
+import 'dart:io';
 
-    double euro = 29.33;
-    double dolar = 26.09;
+void main() {
+  const double euro = 29.33;
+  const double dolar = 26.09;
 
-    print('Elige la opcion de conversion');
-    print('1.Dolar');
-    print('2.Euro');
-    String? opcion = stdin.readLineSync();
+  print('Elige la opción de conversión:');
+  print('1. Dólar');
+  print('2. Euro');
+  stdout.write('Opción: ');
+  String? opcion = stdin.readLineSync();
 
-    switch(opcion){
-        case '1':
-            print('ingrese la cantidad en lempiras para convertir a dolar');
-            String? valor = stdin.readLineSync();
-            double cant_moneda = double.tryParse(valor??);
-            double resultado = cant_moneda*dolar;
-            print('$cant_moneda es equivalente a $resultado');
-            break;
-        case '2':
-            print('ingrese la cantidad en lempiras para convertir a euro');
-            String? valor = stdin.readLineSync();
-            double cant_moneda = double.tryParse(valor??);
-            double resultado = cant_moneda*euro;
-            print('$cant_moneda es equivalente a $resultado');
-            break;
-        default;
-        print('opcion no valida');
-    }
-
-
+  switch (opcion) {
+    case '1':
+      stdout.write('Ingrese la cantidad en lempiras para convertir a dólar: ');
+      String? valor = stdin.readLineSync();
+      double cantMoneda = double.parse(valor!);
+      double resultado = cantMoneda / dolar;
+      print(
+        '$cantMoneda lempiras son equivalentes a ${resultado.toStringAsFixed(2)} dólares.',
+      );
+      break;
+    case '2':
+      stdout.write('Ingrese la cantidad en lempiras para convertir a euro: ');
+      String? valor = stdin.readLineSync();
+      double cantMoneda = double.parse(valor!);
+      double resultado = cantMoneda / euro;
+      print(
+        '$cantMoneda lempiras son equivalentes a ${resultado.toStringAsFixed(2)} euros.',
+      );
+      break;
+    default:
+      print('Opción no válida.');
+  }
 }
