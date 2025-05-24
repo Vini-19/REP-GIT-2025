@@ -6,26 +6,26 @@
  $resultado = '';
  $Limpiador = '';
 
- // Verifica si se han enviado los datos del formulario
+
  if(isset($_POST["intN1"])){
         $intN1 = floatval($_POST["intN1"]);
         $intN2 = floatval($_POST["intN2"]);
  }
 
-    // Verifica que se ha presionado el boton de suma
+
     if (isset($_POST["BtnSuma"])) {
        $resultado = "La suma de " . $intN1 ." + " . $intN2 ."es igual a " . ($intN1 + $intN2) . "";
    }
-    // Verifica que se ha presionado el boton de Resta
+ 
     if (isset($_POST["BtnResta"])) {
       $resultado = "La resta de " . $intN1 ." - " . $intN2 . " es igual a " . ($intN1 - $intN2) . "";
     }
-    // Verifica que se ha presionado el boton de Multiplicacion
+
     if (isset($_POST["BtnMulti"])) {
        $resultado = "La Multiplicación de " . $intN1 ." x " . $intN2 . " es igual a " . ($intN1 * $intN2) . "";
      }
-    // Verifica que se ha presionado el boton de Division
-    if (isset($_POST["BtnDiv"])) {
+
+     if (isset($_POST["BtnDiv"])) {
         if ($intN2 == 0){
             $resultado = "No se puede dividir entre 0";
         }else{
@@ -37,12 +37,8 @@
         $intN1 = 0;
         $intN2 = 0;
     }
-
-
-
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
