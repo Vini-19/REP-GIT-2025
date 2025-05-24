@@ -1,35 +1,50 @@
-<?php 
+<?php
+require_once "lib/libreria.php";
+$catalogo = obtenerProductos();
+$orden = null;
 
-    require_once 'lib/liberia.php';
-    $catalogo = obtenerProductos();
-    /*
-    include
-    include_once
-    requiere
-    requiere_once*/
+if (isset($_POST["btnAddProduct"])) {
+    $codprod = $_POST["codprod"];
+    $producto = obtenerProductoPorCodigo($codprod);
+    $orden = crearOrden();
+    $producto["cantidad"] = 1;
+    $orden["productos"][] = $producto;
+}
+
+/*
+        include
+        include_once
+        require
+        require_once
+    */
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La truca</title>
+    <title>La Trucha New Order</title>
+    <link rel="stylesheet" href="assets/style.css" />
 </head>
+
 <body>
     <header>
-        <div><h1>La trucha New order</h1></div>
+        <div>
+            <h1>La Trucha New Order</h1>
+        </div>
         <nav>
             <ul>
                 <li>
-                    <a href="truchero.php">truchero</a>
+                    <a href="truchero.php">Truchero</a>
                 </li>
             </ul>
         </nav>
-     <header>
+    </header>
     <main>
-      <section>
-        <div class="productos">
+        <section>
+            <div class="productos">
                 <table>
                     <thead>
                         <tr>
@@ -44,8 +59,8 @@
                             <tr>
                                 <td><?php echo $producto["codprod"]; ?></td>
                                 <td><?php echo $producto["dscprod"]; ?></td>
-                                <td><?php echo $producto["precio"]; ?></td>
-                                <td>
+                                <td class="right"><?php echo $producto["precio"]; ?></td>
+                                <td class="center">
                                     <form action="client.php" method="post">
                                         <input type="hidden" value="<?php echo $producto["codprod"]; ?>" name="codprod" />
                                         <button type="submit" name="btnAddProduct">+</button>
@@ -56,59 +71,72 @@
                     </tbody>
                 </table>
             </div>
-        <div class="orden">
-            <table>
-                <thead>
-                    <tr>
-                        <td>codigo</td>
-                        <td>producto</td>
-                        <td>cantidad</td>
-                        <td>&nbsp;</td>
-                        <td>subtotal</td>
-                    </tr>
-                    <tbody>
+            <div class="orden">
+                <table>
+                    <thead>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <form action="client.php" method="post">
-                                    <input type="hidden" value="codigo_producto" name="codprod">
-                                    <button type="submit" name="btnAddProduct">+</button>
-                                    &nbsp;
-                                    <button type="submit" name="btnRemoveProduct">-</button>
-                                </form>
-                            </td>
-                            <td></td>
+                            <th>Cod </th>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>&nbsp;</th>
+                            <th>Subtotal</th>
                         </tr>
+                    </thead>
+                    <tbody>
+                        <?php if ($orden) {
+                            foreach ($orden["productos"] as $producto) { ?>
+                                <tr>
+                                    <td><?php echo $producto["codprod"]; ?></td>
+                                    <td><?php echo $producto["dscprod"]; ?></td>
+                                    <td class="right"><?php echo $producto["cantidad"]; ?></td>
+                                    <td class="center">
+                                        <form action="client.php" method="post">
+                                            <input type="hidden"
+                                                value="<?php echo $producto["codprod"]; ?>"
+                                                name="codprod" />
+                                            <button type="submit"
+                                                name="btnAddProduct">+</button>
+                                            &nbsp;
+                                            <button type="submit"
+                                                name="btnRemoveProduct">-</button>
+                                        </form>
+                                    </td>
+                                    <td class="right">
+                                        <?php echo ($producto["cantidad"] * $producto["precio"]); ?>
+                                    </td>
+                                </tr>
+                        <?php }
+                        } ?>
                     </tbody>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <td colspan="4">Total:</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td colspan="5">
-                            <form action="client.php" method="post">
-                                    <input type="hidden"name="orderID" value="order_id" />
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" class="right">Total: </td>
+                            <td class="right"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" class="right">
+                                <form action="client.php"
+                                    method="post">
+                                    <input type="hidden"
+                                        name="orderID"
+                                        value="order_id" />
                                     <button type="submit" name="btnEnviar">
                                         Enviar
                                     </button>
+                                    &nbsp;
                                     <button type="submit" name="btnCancelar">
                                         Cancelar
                                     </button>
-                            </form>
-                            
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-      </section>
-    <main>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+    </main>
     <footer>
 
     </footer>
 </body>
+
 </html>
