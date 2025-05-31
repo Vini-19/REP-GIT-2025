@@ -6,7 +6,8 @@ function crearOrden($cliente)
         "orderId" => explode(".", gettimeofday(true))[0],
         "cliente" => $cliente,
         "productos" => [],
-        "total" => 0
+        "total" => 0,
+        "estado" => "Abierto"
     ];
     $ordenes = obtenerOrdenes();
     $ordenes[] = $orden;
@@ -128,33 +129,36 @@ function eliminarProductoAOrden(
     guardarOrden($orden);
 }
 
-function setEstadoOrden($ordenId,$estado){
+function setEstadoOrden($orderId, $estado)
+{
     $orden = obtenerOrdenPorId($orderId);
-    $orden["estado"] = "";
+    $orden["estado"] = $estado;
     guardarOrden($orden);
 }
-
-function posterOrden($orderId){
+function postearOrden($orderId)
+{
     setEstadoOrden($orderId, "Posteado");
 }
 
-function cancelado($orderId){
-    setEstadoOrden($orderId, "cancelado");
+function cancelarOrden($orderId)
+{
+    setEstadoOrden($orderId, "Cancelado");
 }
 
-function ordenPreparada($orderId){
-    setEstadoOrden($orderId, "preparada");
+function ordenPreparada($orderId)
+{
+    setEstadoOrden($orderId, "Preparado");
 }
 
-
-function ordenEntregada($orderId){
-    setEstadoOrden($orderId, "ordenEntregada");
+function ordenEntregada($orderId)
+{
+    setEstadoOrden($orderId, "Entregado");
     $orden = obtenerOrdenPorId($orderId);
     $productos = obtenerProductos();
     $newProductos = [];
-    foreach($productos as $producto){
-        foreach($orden["productos"] as $oProducto){
-            if($oProducto["codprod"] == $producto["codprod"]){
+    foreach ($productos as $producto) {
+        foreach ($orden["productos"] as $oProducto) {
+            if ($oProducto["codprod"] == $producto["codprod"]) {
                 $producto["stock"] -= $oProducto["cantidad"];
                 break;
             }
