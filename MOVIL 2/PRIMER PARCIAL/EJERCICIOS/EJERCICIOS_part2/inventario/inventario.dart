@@ -32,7 +32,7 @@ class Producto {
 
 const String archivoInventario = 'inventario.txt';
 
-Future<void> main() async {
+void main() async {
   List<Producto> inventario = await cargarInventario();
 
   while (true) {

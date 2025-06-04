@@ -8,5 +8,10 @@
     "nombre": "pepsi lata",
     "stock": 10,
     "precio": 15.0
+  },
+  {
+    "nombre": "Leche litro",
+    "stock": 2,
+    "precio": 39.0
   }
 ]

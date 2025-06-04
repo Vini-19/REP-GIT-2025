@@ -34,7 +34,7 @@ class Estudiante {
 
 const String archivoEstudiantes = 'estudiantes.txt';
 
-Future<void> main() async {
+void main() async {
   List<Estudiante> estudiantes = await cargarEstudiantes();
 
   while (true) {
