@@ -4,19 +4,19 @@
             "codprod": "P001",
             "dscprod": "Burrita de Chorizo",
             "precio": 70,
-            "stock": 25
+            "stock": 17
         },
         {
             "codprod": "P002",
             "dscprod": "Coca Cola 16 oz",
             "precio": 21,
-            "stock": 50
+            "stock": 44
         },
         {
             "codprod": "P003",
             "dscprod": "Bote de Agua 16 oz",
             "precio": 20,
-            "stock": 50
+            "stock": 47
         }
     ],
     "ordenes": [
@@ -50,7 +50,7 @@
                 }
             ],
             "total": 293,
-            "estado": "Posteado"
+            "estado": "Entregado"
         },
         {
             "orderId": "1748709995",
@@ -66,7 +66,38 @@
                 }
             ],
             "total": 70,
-            "estado": "Posteado"
+            "estado": "Entregado"
+        },
+        {
+            "orderId": "1749239313",
+            "cliente": "Vini",
+            "productos": [
+                {
+                    "codprod": "P001",
+                    "dscprod": "Burrita de Chorizo",
+                    "precio": 70,
+                    "stock": 25,
+                    "cantidad": 1,
+                    "subtotal": 70
+                },
+                {
+                    "codprod": "P003",
+                    "dscprod": "Bote de Agua 16 oz",
+                    "precio": 20,
+                    "stock": 50,
+                    "cantidad": 1,
+                    "subtotal": 20
+                }
+            ],
+            "total": 90,
+            "estado": "Entregado"
+        },
+        {
+            "orderId": "1749240273",
+            "cliente": "zxa",
+            "productos": [],
+            "total": 0,
+            "estado": "Abierto"
         }
     ]
 }
