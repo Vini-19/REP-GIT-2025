@@ -1,0 +1,35 @@
+[
+    {
+        "nombre": "Marco Vinicio",
+        "correo": "sanchez@gmial.com",
+        "contrasena": "1234",
+        "telefono": "98265424",
+        "genero": "Femenino",
+        "redes": "vini.instagram.com",
+        "comentarios": "Me gusta la POO y el analisis de datos",
+        "idiomas": "Espa\u00f1ol nativo, Ingles A1",
+        "intereses": "muebles antiguos"
+    },
+    {
+        "nombre": "Marco Vinicio",
+        "correo": "marcosanchez-1@outlook.com",
+        "contrasena": "1111",
+        "telefono": "98265424",
+        "genero": "Masculino",
+        "redes": "vini.instagram.com",
+        "comentarios": "vinicio registro completado ",
+        "idiomas": "Espa\u00f1ol",
+        "intereses": ""
+    },
+    {
+        "nombre": "1111",
+        "correo": "sanchez@gmial.com",
+        "contrasena": "1111",
+        "telefono": "98265424",
+        "genero": "Masculino",
+        "redes": "vini.instagram.com",
+        "comentarios": "aaaa",
+        "idiomas": "espa\u00f1ol",
+        "intereses": ""
+    }
+]

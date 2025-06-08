@@ -50,7 +50,11 @@
                 }
             ],
             "total": 293,
+<<<<<<< HEAD
             "estado": "Entregado"
+=======
+            "estado": "Preparado"
+>>>>>>> 22248d3e1eccf058e2321906ce57a4da82ffa4b5
         },
         {
             "orderId": "1748709995",
@@ -66,6 +70,7 @@
                 }
             ],
             "total": 70,
+<<<<<<< HEAD
             "estado": "Entregado"
         },
         {
@@ -98,6 +103,25 @@
             "productos": [],
             "total": 0,
             "estado": "Abierto"
+=======
+            "estado": "Posteado"
+        },
+        {
+            "orderId": "1749306784",
+            "cliente": "Marco",
+            "productos": [
+                {
+                    "codprod": "P002",
+                    "dscprod": "Coca Cola 16 oz",
+                    "precio": 21,
+                    "stock": 50,
+                    "cantidad": 1,
+                    "subtotal": 21
+                }
+            ],
+            "total": 21,
+            "estado": "Posteado"
+>>>>>>> 22248d3e1eccf058e2321906ce57a4da82ffa4b5
         }
     ]
 }

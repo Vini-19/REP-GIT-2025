@@ -3,4 +3,3 @@
     $helloInstance = new Nwh\About();
 
     $helloInstance->sayHello();
-?>
