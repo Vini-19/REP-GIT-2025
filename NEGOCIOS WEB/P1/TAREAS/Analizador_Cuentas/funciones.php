@@ -1,33 +1,32 @@
 <?php
-function extraerCuentas($texto) {
-    
-    $partes = preg_split('/[^\d-]+/', $texto);
+function detectarNumeros($entrada) {
+    $segmentos = preg_split('/[^\d-]+/', $entrada);
 
-    $cuentas = array_filter($partes, function($item) {
-        return preg_match('/\d/', $item);
+    $numeros = array_filter($segmentos, function($valor) {
+        return preg_match('/\d/', $valor);
     });
 
-    return array_values($cuentas); 
+    return array_values($numeros);
 }
 
-function guardarEnJson($textoOriginal, $cuentas) {
-    $archivo = 'GuarText.json';
-    $nuevoRegistro = [
+function guardarEnArchivoJson($contenido, $datosNumericos) {
+    $rutaArchivo = 'GuarText.json';
+    $registroNuevo = [
         'fecha' => date('Y-m-d H:i:s'),
-        'texto_original' => $textoOriginal,
-        'cuentas_encontradas' => $cuentas
+        'texto_original' => $contenido,
+        'cuentas_encontradas' => $datosNumericos
     ];
 
-    $data = [];
-    if (file_exists($archivo)) {
-        $contenido = file_get_contents($archivo);
-        $data = json_decode($contenido, true);
-        if (!is_array($data)) {
-            $data = [];
+    $contenidoTotal = [];
+    if (file_exists($rutaArchivo)) {
+        $lectura = file_get_contents($rutaArchivo);
+        $contenidoTotal = json_decode($lectura, true);
+        if (!is_array($contenidoTotal)) {
+            $contenidoTotal = [];
         }
     }
 
-    $data[] = $nuevoRegistro;
-    file_put_contents($archivo, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    $contenidoTotal[] = $registroNuevo;
+    file_put_contents($rutaArchivo, json_encode($contenidoTotal, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 }
-
+?>

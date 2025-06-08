@@ -2,11 +2,11 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>INF</title>
+    <title>Analizador de Numeros</title>
 </head>
 <body>
-    <h2>Ingresa tu datos</h2>
-    <p>Toda la Información sera guardada separando datos numericos o numeros de cuentas</p>
+    <h2>Ingresa tus datos</h2>
+    <p>Toda la información será guardada separando datos numéricos o números de cuentas</p>
 
     <form method="post">
         <label>Ingresa el texto:</label><br>
@@ -18,14 +18,15 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         include "funciones.php";
 
-        $texto = $_POST["texto"];
-        $cuentas = extraerCuentas($texto);
+        $mensaje = $_POST["texto"];
+        $numerosDetectados = detectarNumeros($mensaje);
 
-        guardarEnJson($texto, $cuentas);
+        guardarEnArchivoJson($mensaje, $numerosDetectados);
 
-        echo "Gracias por preferirnos :";
-
-        if (!empty($cuentas)) {
+        if (!empty($numerosDetectados)) {
+            echo "<ul>";
+            
+            echo "</ul>";
         } else {
             echo "No se encontraron coincidencias.";
         }
