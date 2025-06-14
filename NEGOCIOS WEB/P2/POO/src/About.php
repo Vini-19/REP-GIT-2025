@@ -1,11 +1,11 @@
 <?php
 
-namespace Nwh;
+namespace Nws;
 
-class About{  
-      
-    public function sayHello(){
-        echo "Hello world OPP";
+class About
+{
+    public function sayHello()
+    {
+        echo "Hola Mundo OOP";
     }
-
 }

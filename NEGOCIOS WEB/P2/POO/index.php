@@ -1,20 +1,22 @@
 <?php
-    require_once 'vendor/autoload.php';
-    $helloInstance = new Nwh\About();
 
+require_once 'vendor/autoload.php';
 
-    $helloInstance->sayHello();
+session_start();
 
-    //$jasonStore = new Nws\DAO\JsonData("productos.json");
+$helloInstance = new Nws\About();
 
-    $sessionStore = new Nws\DAO\SessionData("productos");
+$jsonStore = new Nws\DAO\JsonData("productos.json");
+//$sessionStore = new Nws\DAO\SessionData("productos");
 
-    $productos = new Nws\DAO\Productos($jasonStore);
+$productos = new Nws\Productos\Productos($jsonStore);
+//$productos = new Nws\Productos\Productos($sessionStore);
 
-    $productoA = new \Nws\Productos\DTO\Producto();
-    $productoA->SKU = "001";
-    $productoA->Descripcion = "Primer producto";
-    $productoA->Precio = 1000.34;
+$productoA = new \Nws\Productos\DTO\Producto();
+$productoA->SKU = "002";
+$productoA->Descripcion = "Segundo Producto";
+$productoA->Precio = 100.34;
 
-    $productos ->addProducto($productoA);
-    print_r($productos->getProductos());
+//$productos->addProducto($productoA);
+
+print_r($productos->getProductos());
