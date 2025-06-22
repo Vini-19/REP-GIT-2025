@@ -63,5 +63,18 @@
         "impuesto": 1890,
         "servicio": 2268,
         "total": 16758
+    },
+    {
+        "nombre_cliente": "Vinicio",
+        "num_personas": 212,
+        "num_cuartos": 2,
+        "tipo_hab": "estandar",
+        "vista_mar": "si",
+        "incluye_desayuno": "si",
+        "num_noches": 2,
+        "base": 68200,
+        "impuesto": 10230,
+        "servicio": 12276,
+        "total": 90706
     }
 ]
