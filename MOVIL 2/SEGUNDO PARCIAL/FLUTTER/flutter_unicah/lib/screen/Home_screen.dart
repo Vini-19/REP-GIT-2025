@@ -1,16 +1,18 @@
+//importar la libreria material
+
 import 'package:flutter/material.dart';
 
-class Home_screen extends StatelessWidget {
-  const Home_screen({Key? key}) : super(key: key);
+class home_screen extends StatelessWidget {
+  const home_screen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 78, 98, 248),
-        title: Text("PROGRAMACION MOVIL 2"),
+        backgroundColor: Color.fromARGB(255, 78, 95, 248),
+        title: Text("PROGRAMACION MOVIL II"),
       ),
-      body: Text("UNICAH 2025"),
+      body: const Text("UNICAH 2025"),
     );
   }
 }
