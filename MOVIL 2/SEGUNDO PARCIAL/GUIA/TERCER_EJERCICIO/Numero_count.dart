@@ -16,3 +16,4 @@ void main() {
 
   print("El número más pequeño es: ${nums.reduce((a, b) => a < b ? a : b)}");
 }
+ 
