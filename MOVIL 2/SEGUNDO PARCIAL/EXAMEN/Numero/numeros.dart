@@ -1,35 +1,36 @@
 import 'dart:io';
 
 void main() {
-  List<int> numeros = [];
-  int contador = 0;
+  List<int> listaNumeros = [];
+  int indiceActual = 1;
 
-  print('Ingrese 10 numero enteros que esten entre 100 y 500:');
-  while (numeros.length < 10) {
-    stdout.write('Numero${contador + 1}:');
-    String? entrada = stdin.readLineSync();
+  print('Debes ingresar 10 números enteros entre 100 y 500.');
 
-    if (entrada == null) {
-      print('Entrada inválida. Intente de nuevo.');
+  while (listaNumeros.length < 10) {
+    stdout.write('Ingrese el número $indiceActual: ');
+    String? input = stdin.readLineSync();
+
+    if (input == null || input.isEmpty) {
+      print('No se recibió ningún valor. Intente nuevamente.');
       continue;
     }
-    int? numero = int.tryParse(entrada);
-    if (numero == null) {
-      print('Debe ingresar un número entero válido.');
+
+    int? valor = int.tryParse(input);
+    if (valor == null) {
+      print('Lo ingresado no es un número válido.');
       continue;
     }
-    if (numero < 100 || numero > 500) {
-      print(
-        'El número ingresado está fuera del rango (100 - 500).Ingresa uno de esos rangos.',
-      );
+
+    if (valor < 100 || valor > 500) {
+      print('El número debe estar en el rango de 100 a 500.');
     } else {
-      numeros.add(numero);
-      contador++;
+      listaNumeros.add(valor);
+      indiceActual++;
     }
   }
 
-  print('\nLos 10 numeros que se ingresaron son estos:');
-  for (int i = 0; i < numeros.length; i++) {
-    print('${i + 1}.${numeros[i]}');
+  print('\nResumen de los números ingresados:');
+  for (var i = 0; i < listaNumeros.length; i++) {
+    print('${i + 1}. ${listaNumeros[i]}');
   }
 }
